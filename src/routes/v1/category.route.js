@@ -13,12 +13,12 @@ const { verifyToken, verifyTokenAdmin } = require('../../middlewares/auth')
 router
 	.route('/categories')
 	.post(verifyToken, verifyTokenAdmin, addCategory)
-	.get(verifyToken, getAllCategory)
+	.get(getAllCategory)
 
 router
 	.route('/categories/:id')
 	.put(verifyToken, verifyTokenAdmin, updateCategory)
-	.get(verifyToken, getCategory)
+	.get(getCategory)
 	.delete(verifyToken, verifyTokenAdmin, deleteCategory)
 
 module.exports = router
