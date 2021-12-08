@@ -17,7 +17,6 @@ const AddEditProductAdmin = lazy(() =>
 const OrderAdmin = lazy(() => import('../pages/admin/Order/Order'))
 // Customer pages
 const Home = lazy(() => import('../pages/customer/Home/Home'))
-const NotFound = lazy(() => import('../pages/customer/NotFound/NotFound'))
 const ForgotPassword = lazy(() =>
 	import('../pages/ForgotPassword/ForgotPassword')
 )
@@ -30,6 +29,7 @@ const ProductDetail = lazy(() =>
 	import('../component/customer/ProductDetail/ProductDetail')
 )
 const Shop = lazy(() => import('../component/customer/Shop/Shop'))
+const NotFound = lazy(() => import('../pages/customer/NotFound/NotFound'))
 
 const routesApp = [
 	{
@@ -84,11 +84,7 @@ const routesApp = [
 		component: Register,
 		restricted: true,
 	},
-	// {
-	// 	path: '/reset-password',
-	// 	component: <ResetPassword />,
-	// 	restricted: true,
-	// },
+
 	// {
 	// 	path: '/forgot-password',
 	// 	component: <ForgotPassword />,
@@ -112,6 +108,10 @@ const routesApp = [
 		exact: true,
 		path: '/order',
 		component: Order,
+	},
+	{
+		path: '*',
+		component: NotFound,
 	},
 ]
 
