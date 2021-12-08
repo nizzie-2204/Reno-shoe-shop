@@ -1,7 +1,6 @@
 const express = require('express')
 const morgan = require('morgan')
 const path = require('path')
-const helmet = require('helmet')
 const cors = require('cors')
 const fileUpload = require('express-fileupload')
 
@@ -22,21 +21,7 @@ connectDB()
 if (process.env.NODE_ENV !== 'production') {
 	app.use(morgan('dev'))
 }
-app.use(
-	helmet({
-		contentSecurityPolicy: {
-			directives: {
-				...helmet.contentSecurityPolicy.getDefaultDirectives(),
-				'script-src': [
-					"'self'",
-					"'unsafe-inline'",
-					'example.com',
-					"img-src 'self' data:",
-				],
-			},
-		},
-	})
-)
+
 app.use(cors())
 app.use(express.json())
 app.use(
